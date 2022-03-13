@@ -1,8 +1,8 @@
 FROM fedora:35
 
 # set version label
-ARG BUILD_DATE
-ARG VERSION
+ENV BUILD_DATE
+ENV VERSION
 LABEL build_version="divialth samba-dc version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 RUN dnf makecache \
@@ -10,6 +10,8 @@ RUN dnf makecache \
     && dnf install -y \
       bind-utils \
       samba \
+      samba-dc-provision \
+      iproute2 \
     && dnf clean all \
     && rm -rf /var/lib/{cache,log}/ \
     && rm -fr /tmp/* /var/tmp/*
