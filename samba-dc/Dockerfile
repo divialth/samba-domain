@@ -13,10 +13,9 @@ RUN pacman -Syu --noconfirm
 
 # install runtime packages
 RUN pacman -S --noconfirm \
-  bind-tools \
-  python-dnspython \
-  samba
-
+      bind-tools \
+      python-dnspython \
+      samba \
     && pacman -Scc \
     && rm -rf /var/lib/{cache,log}/ \
     && rm -fr /tmp/* /var/tmp/*
