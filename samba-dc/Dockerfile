@@ -11,6 +11,7 @@ RUN dnf makecache \
       bind-utils \
       samba \
       samba-dc \
+      supervisor \
       iproute \
       iputils \
     && dnf clean all \
