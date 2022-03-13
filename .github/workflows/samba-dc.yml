@@ -17,6 +17,9 @@ env:
   IMAGE_NAME: divialth/samba-dc
   # base path to the dockerfile
   DOCKERFILE_PATH: samba-dc
+  # build variables
+  BUILD_DATE: ""
+  VERSION: ${{ GITHUB_RUN_ID }}.${{ GITHUB_RUN_NUMBER }}
 
 
 jobs:
@@ -28,6 +31,10 @@ jobs:
       packages: write
 
     steps:
+      - name: set release date
+        run: |
+          echo "BUILD_DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
