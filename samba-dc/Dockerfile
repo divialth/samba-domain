@@ -11,7 +11,7 @@ RUN dnf makecache \
       bind-utils \
       samba \
       samba-dc-provision \
-      iproute2 \
+      iproute \
     && dnf clean all \
     && rm -rf /var/lib/{cache,log}/ \
     && rm -fr /tmp/* /var/tmp/*
