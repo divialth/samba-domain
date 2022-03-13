@@ -10,8 +10,9 @@ RUN dnf makecache \
     && dnf install -y \
       bind-utils \
       samba \
-      samba-dc-provision \
+      samba-dc \
       iproute \
+      iputils \
     && dnf clean all \
     && rm -rf /var/lib/{cache,log}/ \
     && rm -fr /tmp/* /var/tmp/*
