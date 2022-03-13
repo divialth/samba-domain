@@ -83,7 +83,7 @@ appSetup () {
 	fi
 
 	# Set up supervisor
-	sud_conf="/etc/supervisor/supervisord.conf"
+	sud_conf="/etc/supervisord.d/custom.conf"
 	echo "[supervisord]" > $sud_conf
 	echo "nodaemon=true" >> $sud_conf
 	echo "user=root" >> $sud_conf
@@ -104,7 +104,7 @@ appSetup () {
 }
 
 appStart () {
-	/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+	/usr/bin/supervisord -c /etc/supervisord.d/custom.conf
 }
 
 case "$1" in
@@ -118,7 +118,7 @@ case "$1" in
 		;;
 	setup)
 		# If the supervisor conf isn't there, we're spinning up a new container
-		if [[ -f /etc/supervisor/conf.d/supervisord.conf ]]; then
+		if [[ -f /etc/supervisor.d/custom.conf ]]; then
 			appStart
 		else
 			appSetup
