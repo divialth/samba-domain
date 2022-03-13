@@ -1,8 +1,8 @@
 FROM fedora:35
 
 # set version label
-ENV ${BUILD_DATE:-UNKNOWN}
-ENV ${VERSION:-UNKNOWN}
+ENV BUILD_DATE=${BUILD_DATE:-UNKNOWN}
+ENV VERSION=${VERSION:-UNKNOWN}
 LABEL build_version="divialth samba-dc version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 RUN dnf makecache \
