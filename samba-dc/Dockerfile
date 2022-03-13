@@ -5,7 +5,7 @@ ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="divialth samba-dc version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
-RUN dnf update \
+RUN dnf makecache \
     && dnf update -y \
     && dnf install -y \
       bind-utils \
