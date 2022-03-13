@@ -19,7 +19,7 @@ env:
   DOCKERFILE_PATH: samba-dc
   # build variables
   BUILD_DATE: ""
-  VERSION: ${{ GITHUB_RUN_ID }}.${{ GITHUB_RUN_NUMBER }}
+  VERSION: ${{ github.run_id }}-${{ github.run_number }}
 
 
 jobs:
